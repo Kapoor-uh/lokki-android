@@ -12,6 +12,8 @@
     <!-- Google Analytics -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+
+
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
