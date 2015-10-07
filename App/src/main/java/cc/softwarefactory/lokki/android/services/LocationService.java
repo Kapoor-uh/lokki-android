@@ -17,11 +17,11 @@ import android.os.SystemClock;
 import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 
 import cc.softwarefactory.lokki.android.MainApplication;
 import cc.softwarefactory.lokki.android.R;
+import cc.softwarefactory.lokki.android.activities.DialogActivity;
 import cc.softwarefactory.lokki.android.utilities.ServerApi;
 import cc.softwarefactory.lokki.android.activities.MainActivity;
 import cc.softwarefactory.lokki.android.utilities.PreferenceUtils;
@@ -254,8 +254,15 @@ public class LocationService extends Service implements LocationListener, Google
                            if (placeBuzz.getInt("buzzcount")>0){
                                Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                                v.vibrate(1000);
-                               placeBuzz.put("buzzcount",placeBuzz.getInt("buzzcount")-1);
+                               placeBuzz.put("buzzcount", placeBuzz.getInt("buzzcount") - 1);
+                               Intent dialogIntent = new Intent(this, DialogActivity.class);
+                               dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                               dialogIntent.putExtra(DialogActivity.CURRENT_PLACEID, key);
+                               startActivity(dialogIntent);
+
                            }
+                           else
+                               LocationService.start(this.getApplicationContext());
 
                        }
                         else

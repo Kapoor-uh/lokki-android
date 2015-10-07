@@ -42,7 +42,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCmHGAOJLyg_cMw-SuDD-Jfh4yiZZ-XI3E" />
+            android:value="AIzaSyB7hHBOIctjLPi4n-qf9bbCQTe9ONmA-wA" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -84,7 +84,12 @@
             </intent-filter>
 
         </activity>
-
+        <activity
+            android:name=".activities.DialogActivity"
+            android:label="Dialogue"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
         <service android:name=".services.LocationService" />
         <service android:name=".services.DataService" />
         <service android:name="com.google.android.gms.analytics.AnalyticsService"
